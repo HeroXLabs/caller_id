@@ -11,6 +11,11 @@ use Mix.Config
 # You can configure for your application as:
 #
 config :caller_id, redis_url: System.get_env("REDIS_URL")
+config :caller_id, db_prefix: System.get_env("DB_PREFIX")
+
+
+config :ex_twilio, account_sid: System.get_env("TWILIO_ACCOUNT_SID"),
+                   auth_token:  System.get_env("TWILIO_AUTH_TOKEN")
 #
 # And access this configuration in your application as:
 #

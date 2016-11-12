@@ -5,8 +5,7 @@ defmodule CallerId.NextCallerIdService do
   @type service      :: __MODULE__
   @type result       :: {:ok, profile} | {:error, String.t}
 
-  defstruct client: CallerId.NextCallerIdClient
-
+  defstruct client: CallerId.CachableNextCallerIdClient
   alias CallerId.Profile
 
   @spec lookup(service, phone_number) :: result
