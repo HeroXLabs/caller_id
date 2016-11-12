@@ -14,7 +14,8 @@ defmodule CallerId.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :ex_twilio]]
+    [applications: [:logger, :ex_twilio, :redix],
+     mod: {CallerId, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +28,10 @@ defmodule CallerId.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:ex_twilio, github: "he9lin/ex_twilio", ref: "55c960c"}]
+    [
+      {:redix, ">= 0.0.0"},
+      {:poison, "~> 3.0"},
+      {:ex_twilio, github: "he9lin/ex_twilio", ref: "55c960c"}
+    ]
   end
 end

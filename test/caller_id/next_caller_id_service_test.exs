@@ -2,6 +2,7 @@ defmodule CallerId.NextCallerIdServiceTest do
   use ExUnit.Case
 
   alias CallerId.NextCallerIdService, as: S
+  alias CallerId.Utils
 
   defmodule StubNextCallerIdClient do
     @use CallerId.Client
@@ -20,7 +21,10 @@ defmodule CallerId.NextCallerIdServiceTest do
          national_format: "(626) 353-3507",
          phone_number: "+16263533507",
          url: "https://lookups.twilio.com/v1/PhoneNumbers/+16263533507"
-       }}
+       }
+       |> Map.from_struct
+       |> Utils.map_keys_to_strings
+     }
     end
     def lookup(_) do
       {:ok,  %ExTwilio.Lookup.PhoneNumber{
@@ -67,7 +71,10 @@ defmodule CallerId.NextCallerIdServiceTest do
        country_code: "US",
        national_format: "(626) 731-4363",
        phone_number: "+16267314363",
-       url: "https://lookups.twilio.com/v1/PhoneNumbers/+16267314363"}}
+       url: "https://lookups.twilio.com/v1/PhoneNumbers/+16267314363"}
+       |> Map.from_struct
+       |> Utils.map_keys_to_strings
+     }
     end
   end
 

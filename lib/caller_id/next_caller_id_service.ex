@@ -7,13 +7,12 @@ defmodule CallerId.NextCallerIdService do
 
   defstruct client: CallerId.NextCallerIdClient
 
-  alias ExTwilio.Lookup.PhoneNumber, as: Payload
   alias CallerId.Profile
 
   @spec lookup(service, phone_number) :: result
   def lookup(%__MODULE__{client: client}, phone_number) do
-    with {:ok, %Payload{add_ons: payload}} <- client.lookup(phone_number),
-                           nextcaller_data <- get_nextcaller_data(payload) do
+    with {:ok, %{"add_ons" => payload}} <- client.lookup(phone_number),
+                        nextcaller_data <- get_nextcaller_data(payload) do
       if success?(nextcaller_data) do
         with {:ok, record} <- get_record(nextcaller_data),
                    profile <- Profile.load(record),
