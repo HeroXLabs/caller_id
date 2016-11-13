@@ -30,7 +30,7 @@ defmodule CallerId.Mixfile do
   defp deps do
     [
       {:redix, ">= 0.0.0"},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 2.0"},
       {:ex_twilio, github: "he9lin/ex_twilio", ref: "55c960c"}
     ]
   end
