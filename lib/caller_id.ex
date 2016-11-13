@@ -15,7 +15,7 @@ defmodule CallerId do
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Messenger.Supervisor]
+    opts = [strategy: :one_for_one, name: CallerId.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end
