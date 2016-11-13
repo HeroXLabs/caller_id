@@ -21,6 +21,7 @@ defmodule CallerId.NextCallerIdService do
       end
     end
   end
+  def lookup(phone_number), do: %__MODULE__{} |> lookup(phone_number)
 
   defp get_nextcaller_data(payload) do
     get_in(payload, ["results", "nextcaller_advanced_caller_id"])

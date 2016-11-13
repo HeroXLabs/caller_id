@@ -12,15 +12,15 @@ defmodule CallerId.StubNextCallerIdClient do
           "message" => "Request timed out",
           "request_sid" => "XR92cfc83161cb78c5c38cd8bd460dd415", "result" => %{},
           "status" => "failed"}}, "status" => "successful"},
-    carrier: nil,
-    country_code: "US",
-    national_format: "(626) 353-3507",
-    phone_number: "+16263533507",
-    url: "https://lookups.twilio.com/v1/PhoneNumbers/+16263533507"
-  }
-  |> Map.from_struct
-  |> Utils.map_keys_to_strings
-}
+        carrier: nil,
+        country_code: "US",
+        national_format: "(626) 353-3507",
+        phone_number: "+16263533507",
+        url: "https://lookups.twilio.com/v1/PhoneNumbers/+16263533507"
+      }
+      |> Map.from_struct
+      |> Utils.map_keys_to_strings
+    }
   end
   def lookup(_) do
     {:ok,  %ExTwilio.Lookup.PhoneNumber{
@@ -73,4 +73,3 @@ defmodule CallerId.StubNextCallerIdClient do
 }
   end
 end
-
