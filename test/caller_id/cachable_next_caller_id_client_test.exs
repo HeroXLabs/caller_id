@@ -9,7 +9,9 @@ defmodule CallerId.CachableNextCallerIdClientTest do
   @prefix       Application.get_env(:caller_id, :db_prefix)
 
   defmodule DumbNextCallerIdClient do
-    @use CallerId.Client
+    @behaviour CallerId.Client
+
+    def lookup(_, _), do: {:error, "im dumb"}
     def lookup(_), do: {:error, "im dumb"}
   end
 
@@ -35,6 +37,6 @@ defmodule CallerId.CachableNextCallerIdClientTest do
     config = %C{db_prefix: @prefix, client: StubNextCallerIdClient}
     {:ok, _} = C.lookup(config, @phone_number)
     {:ok, result} = RedisClient.get(@prefix, @phone_number)
-    assert Dict.get(result, "add_ons")
+    assert Map.get(result, "add_ons")
   end
 end

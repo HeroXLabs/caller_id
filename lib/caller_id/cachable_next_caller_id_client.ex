@@ -1,5 +1,5 @@
 defmodule CallerId.CachableNextCallerIdClient do
-  @use CallerId.Client
+  @behaviour CallerId.Client
 
   @type phone_number :: String.t
   @type result       :: {:ok, Map.t} | {:error, String.t}

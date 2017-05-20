@@ -5,7 +5,6 @@ defmodule CallerId.NextCallerIdServiceTest do
   alias CallerId.StubNextCallerIdClient
 
   @phone_number "+16262518951"
-  @prefix       Application.get_env(:caller_id, :db_prefix)
 
   setup do
     config = %S{client: StubNextCallerIdClient}

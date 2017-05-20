@@ -1,7 +1,9 @@
 defmodule CallerId.StubNextCallerIdClient do
-  @use CallerId.Client
+  @behaviour CallerId.Client
 
   alias CallerId.Utils
+
+  def lookup(_, a), do: lookup(a)
 
   def lookup("error_return"), do: {:error, "error return"}
   def lookup("invalid_return") do

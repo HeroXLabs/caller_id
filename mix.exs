@@ -4,7 +4,7 @@ defmodule CallerId.Mixfile do
   def project do
     [app: :caller_id,
      version: "0.1.0",
-     elixir: "~> 1.3",
+     elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -31,7 +31,7 @@ defmodule CallerId.Mixfile do
     [
       {:redix, ">= 0.0.0"},
       {:poison, "~> 2.0"},
-      {:ex_twilio, github: "he9lin/ex_twilio", ref: "55c960c"}
+      {:ex_twilio, "~> 0.3.0"}
     ]
   end
 end

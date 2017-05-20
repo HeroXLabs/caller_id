@@ -12,7 +12,7 @@ defmodule CallerId.RedisClientTest do
     RedisClient.set(prefix, phone_number, payload)
 
     {:ok, result} = RedisClient.get(prefix, phone_number)
-    assert Dict.get(result, "add_ons")
+    assert Map.get(result, "add_ons")
 
     RedisClient.del(prefix, phone_number)
   end

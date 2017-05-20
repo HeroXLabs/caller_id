@@ -1,5 +1,5 @@
 defmodule CallerId.NextCallerIdClient do
-  @use CallerId.Client
+  @behaviour CallerId.Client
 
   @type phone_number :: String.t
   @type result       :: {:ok, Map.t} | {:error, String.t}
@@ -35,10 +35,10 @@ defmodule CallerId.NextCallerIdClient do
   end
 
   defp success?(nextcaller_data) do
-    nextcaller_data |> Dict.get("status") == "successful"
+    nextcaller_data |> Map.get("status") == "successful"
   end
 
   defp get_status_message(nextcaller_data) do
-    nextcaller_data |> Dict.get("message")
+    nextcaller_data |> Map.get("message")
   end
 end

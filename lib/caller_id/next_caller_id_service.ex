@@ -1,5 +1,5 @@
 defmodule CallerId.NextCallerIdService do
-  @use CallerId.Service
+  @behaviour CallerId.Service
   @type phone_number :: String.t
   @type profile      :: Profile.t
   @type service      :: __MODULE__
@@ -28,11 +28,11 @@ defmodule CallerId.NextCallerIdService do
   end
 
   defp success?(nextcaller_data) do
-    nextcaller_data |> Dict.get("status") == "successful"
+    nextcaller_data |> Map.get("status") == "successful"
   end
 
   defp get_status_message(nextcaller_data) do
-    nextcaller_data |> Dict.get("message")
+    nextcaller_data |> Map.get("message")
   end
 
   defp get_record(nextcaller_data) do
